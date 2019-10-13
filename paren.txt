@@ -1,0 +1,21 @@
+for i in range(1):
+    a=input()
+    s=list(a)
+    start, max_len = -1, 0
+    stack = []
+    for i in range(len(s)):
+        if s[i] == '(':
+            stack.append(i)
+            
+        else:
+            if not stack:
+                start = i
+            else:
+                stack.pop(-1)
+                if not stack:
+                    max_len = max(max_len, (i-start))
+                else:
+                    max_len = max(max_len, (i-stack[-1]))
+                    
+    print(max_len)
+    s.clear()"# parenthesis" 
